@@ -100,7 +100,7 @@ const VersionSwitcher = ({ currentVersion, versions }) => {
 
   useEffect(() => {
     const handleWindowClick = (event) => {
-      if (open && !event.path.includes(containerRef.current)) {
+      if (open && !event.composedPath().includes(containerRef.current)) {
         setOpen(false);
       }
     };
