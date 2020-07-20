@@ -9,7 +9,7 @@ styleguideConfig.styleguideDir = path.join(
 );
 styleguideConfig.require.push(
   path.join(__dirname, "../styleguide-globals.js"),
-  path.join(__dirname, "../version-switcher/index.js")
+  path.join(__dirname, "../version-switcher/dist/version-switcher.min.js")
 );
 
 module.exports = styleguideConfig;

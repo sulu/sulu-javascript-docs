@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { usePopper } from "react-popper";
+import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { usePopper } from 'react-popper';
 
-const blue = "#112A46";
-const darkblue = "#081523";
-const lightblue = "#52B6CA";
+const blue = '#112A46';
+const darkblue = '#081523';
+const lightblue = '#52B6CA';
 
 const Container = styled.div`
   font-family: sans-serif;
@@ -37,8 +37,8 @@ const Button = styled.button`
 `;
 
 const Popover = styled.div`
-  pointer-events: ${({ open }) => (open ? "unset" : "none")};
-  visibility: ${({ open }) => (open ? "visible" : "hidden")};
+  pointer-events: ${({ open }) => (open ? 'unset' : 'none')};
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   border: 5px solid ${blue};
   border-radius: 5px;
   color: ${blue};
@@ -78,9 +78,9 @@ const Link = styled.a`
   text-align: center;
   outline: none;
 
-  font-weight: ${({ disabled }) => (disabled ? "bold" : "normal")};
-  pointer-events: ${({ disabled }) => (disabled ? "none" : "unset")};
-  cursor: ${({ disabled }) => (disabled ? "default" : "hand")};
+  font-weight: ${({ disabled }) => (disabled ? 'bold' : 'normal')};
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'unset')};
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'hand')};
 
   &:hover,
   &:focus,
@@ -99,92 +99,80 @@ const VersionSwitcher = ({ currentVersion, versions }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleWindowClick = event => {
+    const handleWindowClick = (event) => {
       if (open && !event.path.includes(containerRef.current)) {
         setOpen(false);
       }
     };
-    const handleKeyDown = event => {
-      if (open && event.key === "Escape") {
+    const handleKeyDown = (event) => {
+      if (open && event.key === 'Escape') {
         setOpen(false);
       }
     };
 
-    window.addEventListener("click", handleWindowClick);
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('click', handleWindowClick);
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener("click", handleWindowClick);
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('click', handleWindowClick);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [open]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
       {
-        name: "arrow",
+        name: 'arrow',
         options: {
-          element: arrowElement
-        }
+          element: arrowElement,
+        },
       },
       {
-        name: "offset",
+        name: 'offset',
         options: {
-          offset: [0, 10]
-        }
-      }
+          offset: [0, 10],
+        },
+      },
     ],
-    placement: "top-end"
+    placement: 'top-end',
   });
 
   return (
     <Container ref={containerRef}>
       <Button
-        type="button"
-        ref={setReferenceElement}
         onClick={() => {
           if (!open) setOpen(true);
         }}
+        ref={setReferenceElement}
+        type="button"
       >
-        v: {currentVersion}
+        v: 
+        {' '}
+        {currentVersion}
       </Button>
 
-      <Popover
-        ref={setPopperElement}
-        open={open}
-        style={styles.popper}
-        {...attributes.popper}
-      >
+      <Popover open={open} ref={setPopperElement} style={styles.popper} {...attributes.popper}>
         <Content>
           <Heading>Version</Heading>
           <div>
-            {versions.map(version => {
+            {versions.map((version) => {
               if (version === currentVersion) {
                 return (
-                  <Link
-                    href={"javascript:void(0)"}
-                    disabled={true}
-                    tabIndex={"-1"}
-                    key={version}
-                  >
-                    {version}
-                  </Link>
-                );
-              } else {
-                return (
-                  <Link href={`../${version}`} key={version}>
+                  // eslint-disable-next-line jsx-a11y/anchor-is-valid, no-script-url
+                  <Link disabled href="javascript:void(0)" key={version} tabIndex="-1">
                     {version}
                   </Link>
                 );
               }
+              return (
+                <Link href={`../${version}`} key={version}>
+                  {version}
+                </Link>
+              );
             })}
           </div>
         </Content>
-        <ArrowContainer
-          ref={setArrowElement}
-          style={styles.arrow}
-          {...attributes.arrow}
-        >
+        <ArrowContainer ref={setArrowElement} style={styles.arrow} {...attributes.arrow}>
           <Arrow />
         </ArrowContainer>
       </Popover>

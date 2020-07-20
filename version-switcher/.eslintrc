@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "extends": ["airbnb", "prettier"],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "globalThis": true
+  },
+  "rules": {
+    "max-len": ["error", { "code": 100 }],
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/prop-types": ["off"]
+  }
+}

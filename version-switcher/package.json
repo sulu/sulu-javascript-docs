@@ -1,0 +1,41 @@
+{
+  "name": "version-switcher",
+  "scripts": {
+    "lint": "eslint src/**/*.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier src/**/*.jsx",
+    "prettier:fix": "npm run prettier -- --write",
+    "build": "npm run prettier:fix && npm run lint:fix && webpack --mode production",
+    "dev": "webpack --mode development",
+    "watch": "webpack --mode development --watch"
+  },
+  "author": {
+    "name": "Luca Rath-Heel",
+    "email": "luca@sulu.io"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-popper": "^2.2.3",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^2.0.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
