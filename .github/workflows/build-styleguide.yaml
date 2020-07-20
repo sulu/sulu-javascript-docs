@@ -39,7 +39,7 @@ jobs:
                   git add docs/${{ matrix.version.version }}
                   git status
                   git diff --quiet && git diff --staged --quiet || git commit -m "Publish ${{ matrix.version.version }}"
-                  git pull --ff-only
+                  git pull --rebase
                   git push
 
     update-index:
@@ -61,5 +61,5 @@ jobs:
                   git add docs/index.html.twig
                   git status
                   git diff --quiet && git diff --staged --quiet || git commit -m "Update index.html file"
-                  git pull --ff-only
+                  git pull --rebase
                   git push
