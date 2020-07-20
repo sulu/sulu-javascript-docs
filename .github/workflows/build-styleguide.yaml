@@ -19,7 +19,7 @@ jobs:
                     - { ref: 'release/2.0', version: '2.0' }
 
         steps:
-            - run: echo Building styleguide for version ${{ matrix.version.version }} from ref ${{ matrix.version.ref }}
+            - run: echo Building styleguide for version "${{ matrix.version.version }}" from ref "${{ matrix.version.ref }}"
 
             - name: Checkout project
               uses: actions/checkout@v2
@@ -34,7 +34,6 @@ jobs:
 
             - name: Push styleguide
               run: |
-                  cd styleguide
                   git config user.email "github@sulu.io"
                   git config user.name "Sulu User"
                   git add docs/${{ matrix.version.version }}
@@ -57,7 +56,6 @@ jobs:
 
             - name: Push index.html
               run: |
-                  cd styleguide
                   git config user.email "github@sulu.io"
                   git config user.name "Sulu User"
                   git add docs/index.html.twig
