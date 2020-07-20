@@ -17,6 +17,7 @@ jobs:
                     - { ref: 'master', version: 'latest' }
                     - { ref: 'release/2.1', version: '2.1' }
                     - { ref: 'release/2.0', version: '2.0' }
+            max-parallel: 1
 
         steps:
             - run: echo Building styleguide for version "${{ matrix.version.version }}" from ref "${{ matrix.version.ref }}"
