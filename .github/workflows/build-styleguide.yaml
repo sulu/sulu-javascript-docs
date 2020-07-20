@@ -30,7 +30,7 @@ jobs:
                   node-version: 12.x
 
             - name: Build styleguide
-              run: bin/build-styleguide ${{ matrix.version.ref }} ${{ matrix.version.version }} '$AVAILABLE_VERSIONS'
+              run: bin/build-styleguide ${{ matrix.version.ref }} ${{ matrix.version.version }} "$AVAILABLE_VERSIONS"
 
             - name: Push styleguide
               run: |
