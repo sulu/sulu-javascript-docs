@@ -1,0 +1,31 @@
+#!/bin/bash
+
+die () {
+    echo >&2 "$@"
+    exit 1
+}
+
+[ "$#" -eq 3 ] || die "3 argument required, $# provided. 'bin/styleguide <GIT_REF> <CURRENT_VERSON> <AVAILABLE_VERSIONS>'"
+
+BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+GIT_REF=$1
+CURRENT_VERSION=$2
+AVAILABLE_VERSIONS=$3
+
+cd $BIN_DIR/..
+
+rm -rf docs/$CURRENT_VERSION
+rm -rf sulu
+rm -rf styleguide-globals.js
+
+echo "globalThis.STYLEGUIDE_CURRENT_VERSION = '$CURRENT_VERSION';" > styleguide-globals.js
+echo "globalThis.STYLEGUIDE_AVAILABLE_VERSIONS = $AVAILABLE_VERSIONS;" >> styleguide-globals.js
+
+git clone --branch "$GIT_REF" https://github.com/sulu/sulu.git sulu
+
+cp styleguide.build.config.js sulu
+cd sulu
+
+npm install
+npm run styleguide:build -- --config styleguide.build.config.js
