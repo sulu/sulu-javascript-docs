@@ -40,7 +40,7 @@ jobs:
                   git add docs/${{ matrix.version.version }}
                   git status
                   git diff --quiet && git diff --staged --quiet || git commit -m "Publish ${{ matrix.version.version }}"
-                  git push || git pull --rebase && git push
+                  git push || (git pull --rebase && git push)
 
     update-index:
         name: Update index.html file
@@ -62,4 +62,4 @@ jobs:
                   git add docs/index.html
                   git status
                   git diff --quiet && git diff --staged --quiet || git commit -m "Update index.html file"
-                  git push || git pull --rebase && git push
+                  git push || (git pull --rebase && git push)
