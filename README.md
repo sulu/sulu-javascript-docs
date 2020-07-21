@@ -1,7 +1,7 @@
 # Sulu Javascript Docs
 
 This repository contains the sources for sulu's javascript documentation.
-The docs are available at https://sulu.github.io/sulu-javascript-docs.
+The docs are available at https://jsdocs.sulu.io.
 
 ## Maintenance
 
