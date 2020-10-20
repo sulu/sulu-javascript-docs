@@ -1,2 +1,9 @@
 /sulu/
 /styleguide-globals.js
+
+# IDEs
+/.idea
+*.iml
+
+# System files
+.DS_Store

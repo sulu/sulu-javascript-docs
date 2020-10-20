@@ -16,7 +16,7 @@ const Button = styled.button`
   bottom: 20px;
   width: auto;
   height: auto;
-  background-color: ${blue};
+  background-color: ${({ open }) => (open ? darkblue : blue)};
   color: white;
   border-radius: 5px;
   border: none;
@@ -30,13 +30,10 @@ const Button = styled.button`
   &:hover {
     background-color: ${darkblue};
   }
-
-  &:focus {
-    box-shadow: 0 0 0 3px rgb(17, 42, 70, 0.5);
-  }
 `;
 
 const Popover = styled.div`
+  background: ${blue};
   pointer-events: ${({ open }) => (open ? 'unset' : 'none')};
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   border: 5px solid ${blue};
@@ -59,33 +56,22 @@ const Arrow = styled.div`
 
 const Content = styled.div`
   padding: 20px;
-  background-color: white;
-`;
-
-const Heading = styled.h2`
-  font-size: 18px;
-  font-weight: bold;
-  color: ${blue};
-  margin: 0 0 10px;
-  text-align: center;
 `;
 
 const Link = styled.a`
-  color: ${lightblue};
+  color: white;
   margin: 5px;
   display: block;
   text-decoration: none;
   text-align: center;
   outline: none;
 
-  font-weight: ${({ disabled }) => (disabled ? 'bold' : 'normal')};
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'unset')};
-  cursor: ${({ disabled }) => (disabled ? 'default' : 'hand')};
+  font-weight: ${({ current }) => (current ? 'bold' : 'normal')};
 
   &:hover,
   &:focus,
   &:active {
-    color: ${blue};
+    color: ${lightblue};
   }
 `;
 
@@ -141,8 +127,9 @@ const VersionSwitcher = ({ currentVersion, versions }) => {
     <Container ref={containerRef}>
       <Button
         onClick={() => {
-          if (!open) setOpen(true);
+          setOpen(!open);
         }}
+        open={open}
         ref={setReferenceElement}
         type="button"
       >
@@ -153,24 +140,15 @@ const VersionSwitcher = ({ currentVersion, versions }) => {
 
       <Popover open={open} ref={setPopperElement} style={styles.popper} {...attributes.popper}>
         <Content>
-          <Heading>Version</Heading>
-          <div>
-            {versions.map((version) => {
-              if (version === currentVersion) {
-                return (
-                  // eslint-disable-next-line jsx-a11y/anchor-is-valid, no-script-url
-                  <Link disabled href="javascript:void(0)" key={version} tabIndex="-1">
-                    {version}
-                  </Link>
-                );
-              }
-              return (
-                <Link href={`../${version}`} key={version}>
-                  {version}
-                </Link>
-              );
-            })}
-          </div>
+          {versions.map((version) => (
+            <Link
+              current={version === currentVersion}
+              href={`../${version}${window.location.hash}`}
+              key={version}
+            >
+              {version}
+            </Link>
+          ))}
         </Content>
         <ArrowContainer ref={setArrowElement} style={styles.arrow} {...attributes.arrow}>
           <Arrow />
