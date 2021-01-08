@@ -7,8 +7,8 @@ on:
             - master
 
 env:
-    LATEST_VERSION: '2.2'
-    AVAILABLE_VERSIONS: '["latest", "2.2", "2.1", "2.0"]'
+    STABLE_VERSION: '2.2'
+    AVAILABLE_VERSIONS: '["latest", "2.2", "2.1"]'
 
 jobs:
     build-styleguide:
@@ -18,10 +18,9 @@ jobs:
         strategy:
             matrix:
                 version:
-                    - { ref: 'master', version: 'latest' }
-                    - { ref: 'release/2.2', version: '2.2' }
-                    - { ref: 'release/2.1', version: '2.1' }
-                    - { ref: 'release/2.0', version: '2.0' }
+                    - { ref: '2.x', version: 'latest' }
+                    - { ref: '2.2', version: '2.2' }
+                    - { ref: '2.1', version: '2.1' }
 
         steps:
             - run: echo Building styleguide for version "${{ matrix.version.version }}" from ref "${{ matrix.version.ref }}"
@@ -60,7 +59,7 @@ jobs:
               run: git pull --ff-only
 
             - name: Update index.html
-              run: echo "<!DOCTYPE html><html><body><script>window.location.href += '/$LATEST_VERSION';</script></body></html>" > docs/index.html
+              run: echo "<!DOCTYPE html><html><body><script>window.location.href += '/$STABLE_VERSION';</script></body></html>" > docs/index.html
 
             - name: Push index.html
               run: |
