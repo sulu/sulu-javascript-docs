@@ -23,7 +23,7 @@ rm -rf styleguide-globals.js
 echo "globalThis.STYLEGUIDE_CURRENT_VERSION = '$CURRENT_VERSION';" > styleguide-globals.js
 echo "globalThis.STYLEGUIDE_AVAILABLE_VERSIONS = $AVAILABLE_VERSIONS;" >> styleguide-globals.js
 
-git clone --branch "$GIT_REF" https://github.com/sulu/sulu.git sulu
+git clone --depth 1 --branch "$GIT_REF" https://github.com/sulu/sulu.git sulu
 
 cp styleguide.build.config.js sulu
 cd sulu
