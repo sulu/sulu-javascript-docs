@@ -8,11 +8,11 @@ on:
 
 env:
     STABLE_VERSION: '2.2'
-    AVAILABLE_VERSIONS: '["latest", "2.2", "2.1"]'
+    AVAILABLE_VERSIONS: '["latest", "2.2", "2.1", "2.0"]'
 
 jobs:
     build-styleguide:
-        name: Build styleguide
+        name: Build styleguide for version ${{ matrix.version.version }} from ref ${{ matrix.version.ref }}
         runs-on: ubuntu-latest
 
         strategy:
@@ -21,10 +21,9 @@ jobs:
                     - { ref: '2.x', version: 'latest' }
                     - { ref: '2.2', version: '2.2' }
                     - { ref: '2.1', version: '2.1' }
+                    - { ref: '2.0.12', version: '2.0' }
 
         steps:
-            - run: echo Building styleguide for version "${{ matrix.version.version }}" from ref "${{ matrix.version.ref }}"
-
             - name: Checkout project
               uses: actions/checkout@v2
 
