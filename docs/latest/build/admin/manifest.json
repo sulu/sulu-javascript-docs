@@ -1,6 +1,6 @@
 {
-  "main.css": "build/admin/main.2162bcc5e74c7728859c.css",
-  "main.js": "build/bundle.2162bcc5.js",
+  "main.css": "build/admin/main.bf379d3d5fd337398a88.css",
+  "main.js": "build/bundle.bf379d3d.js",
   "build/admin/fonts/fontawesome-webfont.ttf?v=4.7.0": "build/admin/fonts/fontawesome-webfont.1e59d2330b4c6deb84b340635ed36249.ttf",
   "build/admin/fonts/fontawesome-webfont.woff2?v=4.7.0": "build/admin/fonts/fontawesome-webfont.20fd1704ea223900efa9fd4e869efb08.woff2",
   "build/admin/fonts/fontawesome-webfont.eot?v=4.7.0": "build/admin/fonts/fontawesome-webfont.8b43027f47b20503057dfbbaa9401fef.eot",
@@ -62,6 +62,6 @@
   "build/admin/images/checkerBackground.gif": "build/admin/images/checkerBackground.9883f9a87851b3f982e6e6ac284c2f4e.gif",
   "build/admin/images/smartphone.png": "build/admin/images/smartphone.e3d89c406dd49757ee727c788d3bfd14.png",
   "build/admin/images/tablet.png": "build/admin/images/tablet.783ad1038b2c58628e187a9db538ab19.png",
-  "build/bundle.2162bcc5.js.LICENSE.txt": "build/bundle.2162bcc5.js.LICENSE.txt",
+  "build/bundle.bf379d3d.js.LICENSE.txt": "build/bundle.bf379d3d.js.LICENSE.txt",
   "index.html": "index.html"
 }
