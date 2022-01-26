@@ -25,6 +25,10 @@ echo "globalThis.STYLEGUIDE_AVAILABLE_VERSIONS = $AVAILABLE_VERSIONS;" >> styleg
 
 git clone --depth 1 --branch "$GIT_REF" https://github.com/sulu/sulu.git sulu
 
+cd version-switcher
+npm install
+cd ..
+
 cp styleguide.build.config.js sulu
 cd sulu
 
