@@ -1,11 +1,11 @@
 {
-  "main.css": "build/admin/main.40c1664ffd73bafe57a3.css",
-  "main.js": "build/bundle.40c1664f.js",
+  "main.css": "build/admin/main.2899a45e39339ee7e96b.css",
+  "main.js": "build/bundle.2899a45e.js",
   "build/admin/fonts/font-awesome.min.css": "build/admin/fonts/fontawesome-webfont.f691f37e57f04c152e2315ab7dbad881.woff",
   "build/admin/fonts/global.scss": "build/admin/fonts/open-sans-v15-latin-regular.ec806460121999bcfb12bc264d46d41e.woff2",
   "build/admin/fonts/sulu-icon.css": "build/admin/fonts/sulu.7918956d252a916c3102478369c134b8.ttf",
   "build/admin/images/singleMediaDropzone.scss": "build/admin/images/checkerBackground.9883f9a87851b3f982e6e6ac284c2f4e.gif",
   "build/admin/images/preview.scss": "build/admin/images/tablet.783ad1038b2c58628e187a9db538ab19.png",
-  "build/bundle.40c1664f.js.LICENSE.txt": "build/bundle.40c1664f.js.LICENSE.txt",
+  "build/bundle.2899a45e.js.LICENSE.txt": "build/bundle.2899a45e.js.LICENSE.txt",
   "index.html": "index.html"
 }
