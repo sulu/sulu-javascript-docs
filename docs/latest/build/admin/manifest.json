@@ -1,6 +1,6 @@
 {
-  "main.css": "build/admin/main.d916c5c653bf46ec1aff.css",
-  "main.js": "build/bundle.d916c5c6.js",
+  "main.css": "build/admin/main.2a840aecafe5ee39796e.css",
+  "main.js": "build/bundle.2a840aec.js",
   "build/admin/fonts/fa-brands-400.woff": "build/admin/fonts/fa-brands-400.2285773e6b4b172f07d9b777c81b0775.woff",
   "build/admin/fonts/fa-brands-400.eot": "build/admin/fonts/fa-brands-400.23f19bb08961f37aaf692ff943823453.eot",
   "build/admin/fonts/fa-brands-400.svg": "build/admin/fonts/fa-brands-400.2f517e09eb2ca6650ff5bec5a95157ab.svg",
@@ -66,12 +66,12 @@
   "build/admin/fonts/open-sans-v15-latin-regular.woff": "build/admin/fonts/open-sans-v15-latin-regular.87a454b233bedae23f8d1be11e8b4f68.woff",
   "build/admin/fonts/open-sans-v15-latin-regular.eot": "build/admin/fonts/open-sans-v15-latin-regular.a356e361ee6765f3d6d4c1d4664f12ab.eot",
   "build/admin/fonts/open-sans-v15-latin-regular.woff2": "build/admin/fonts/open-sans-v15-latin-regular.ec806460121999bcfb12bc264d46d41e.woff2",
-  "build/admin/fonts/sulu.svg?tj3m4m": "build/admin/fonts/sulu.07f4627f7908014cbdf0033210ad77f4.svg",
-  "build/admin/fonts/sulu.ttf?tj3m4m": "build/admin/fonts/sulu.22cad83f006bd206a58932d33d4f29cf.ttf",
-  "build/admin/fonts/sulu.woff?tj3m4m": "build/admin/fonts/sulu.e235bec99bfe9d9e0d3f9e7eccb53cee.woff",
+  "build/admin/fonts/sulu.woff?uud37h": "build/admin/fonts/sulu.169d5578e34ddf5c1d35a6ca91c74e7c.woff",
+  "build/admin/fonts/sulu.svg?uud37h": "build/admin/fonts/sulu.18b81b6bc6a79a5480cb94ef41a6c264.svg",
+  "build/admin/fonts/sulu.ttf?uud37h": "build/admin/fonts/sulu.e0827742615cde3a7c0477217fcd5821.ttf",
   "build/admin/images/checkerBackground.gif": "build/admin/images/checkerBackground.9883f9a87851b3f982e6e6ac284c2f4e.gif",
   "build/admin/images/smartphone.png": "build/admin/images/smartphone.e3d89c406dd49757ee727c788d3bfd14.png",
   "build/admin/images/tablet.png": "build/admin/images/tablet.783ad1038b2c58628e187a9db538ab19.png",
-  "build/bundle.d916c5c6.js.LICENSE.txt": "build/bundle.d916c5c6.js.LICENSE.txt",
+  "build/bundle.2a840aec.js.LICENSE.txt": "build/bundle.2a840aec.js.LICENSE.txt",
   "index.html": "index.html"
 }
