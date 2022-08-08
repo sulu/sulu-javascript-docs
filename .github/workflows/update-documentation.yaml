@@ -36,9 +36,12 @@ jobs:
                   node-version: 12.x
 
             - name: Build styleguide
+              id: styleguide-build
+              continue-on-error: true
               run: bin/build-styleguide ${{ matrix.version.ref }} ${{ matrix.version.version }} "$AVAILABLE_VERSIONS"
 
             - name: Push styleguide
+              if: success() && steps.styleguide-build.outcome == 'success'
               run: |
                   git pull --ff-only
                   git config user.email "github@sulu.io"
