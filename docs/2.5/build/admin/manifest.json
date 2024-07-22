@@ -1,6 +1,6 @@
 {
-  "main.css": "build/admin/main.73486fcdb909709967c1.css",
-  "main.js": "build/bundle.73486fcd.js",
+  "main.css": "build/admin/main.53771332a87e4823c26b.css",
+  "main.js": "build/bundle.53771332.js",
   "build/admin/fonts/fa-brands-400.woff": "build/admin/fonts/fa-brands-400.2285773e6b4b172f07d9b777c81b0775.woff",
   "build/admin/fonts/fa-brands-400.eot": "build/admin/fonts/fa-brands-400.23f19bb08961f37aaf692ff943823453.eot",
   "build/admin/fonts/fa-brands-400.svg": "build/admin/fonts/fa-brands-400.2f517e09eb2ca6650ff5bec5a95157ab.svg",
@@ -72,6 +72,6 @@
   "build/admin/images/checkerBackground.gif": "build/admin/images/checkerBackground.9883f9a87851b3f982e6e6ac284c2f4e.gif",
   "build/admin/images/smartphone.png": "build/admin/images/smartphone.e3d89c406dd49757ee727c788d3bfd14.png",
   "build/admin/images/tablet.png": "build/admin/images/tablet.783ad1038b2c58628e187a9db538ab19.png",
-  "build/bundle.73486fcd.js.LICENSE.txt": "build/bundle.73486fcd.js.LICENSE.txt",
+  "build/bundle.53771332.js.LICENSE.txt": "build/bundle.53771332.js.LICENSE.txt",
   "index.html": "index.html"
 }
