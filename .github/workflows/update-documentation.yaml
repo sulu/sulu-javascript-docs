@@ -1,6 +1,7 @@
 name: Update Documentation
 
 on:
+    pull_request:
     workflow_dispatch:
     push:
         branches:
@@ -18,23 +19,23 @@ jobs:
         strategy:
             matrix:
                 version:
-                    - { ref: '3.0', version: 'latest' }
-                    - { ref: '2.6', version: '2.6' }
-                    - { ref: '2.5', version: '2.5' }
-                    - { ref: '2.4', version: '2.4' }
-                    - { ref: '2.3.13', version: '2.3' }
-                    - { ref: '2.2.19', version: '2.2' }
-                    - { ref: '2.1.14', version: '2.1' }
-                    - { ref: '2.0.12', version: '2.0' }
+                    - { ref: '3.0', version: 'latest', nodeVersion: '22.x' }
+                    - { ref: '2.6', version: '2.6', nodeVersion: '20.x' }
+                    - { ref: '2.5', version: '2.5', nodeVersion: '14.x' }
+                    - { ref: '2.4.20', version: '2.4', nodeVersion: '12.x' }
+                    - { ref: '2.3.13', version: '2.3', nodeVersion: '12.x' }
+                    - { ref: '2.2.19', version: '2.2', nodeVersion: '12.x' }
+                    - { ref: '2.1.14', version: '2.1', nodeVersion: '12.x' }
+                    - { ref: '2.0.12', version: '2.0', nodeVersion: '12.x' }
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
-            - name: Use Node.js 12
-              uses: actions/setup-node@v1
+            - name: Use Node.js  ${{ matrix.version.nodeVersion }}
+              uses: actions/setup-node@v4
               with:
-                  node-version: 12.x
+                  node-version: ${{ matrix.version.nodeVersion }}
 
             - name: Build styleguide
               id: styleguide-build
@@ -42,7 +43,7 @@ jobs:
               run: bin/build-styleguide ${{ matrix.version.ref }} ${{ matrix.version.version }} "$AVAILABLE_VERSIONS"
 
             - name: Push styleguide
-              if: success() && steps.styleguide-build.outcome == 'success'
+              if: success() && steps.styleguide-build.outcome == 'success' && github.ref == 'refs/heads/master'
               run: |
                   git pull --ff-only
                   git config user.email "github@sulu.io"
@@ -59,15 +60,18 @@ jobs:
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
+              with:
+                  ref: 'master'
 
             - name: Pull repository
               run: git pull --ff-only
 
             - name: Update index.html
-              run: echo "<!DOCTYPE html><html><body><script>window.location.href += '/$STABLE_VERSION';</script></body></html>" > docs/index.html
+              run: echo "<!DOCTYPE html><html><body><script>window.location.href = './$STABLE_VERSION';</script></body></html>" > docs/index.html
 
             - name: Push index.html
+              if: ${{ github.ref == 'refs/heads/master' }}
               run: |
                   git config user.email "github@sulu.io"
                   git config user.name "Sulu User"
