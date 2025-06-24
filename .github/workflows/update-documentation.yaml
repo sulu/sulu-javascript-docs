@@ -1,6 +1,7 @@
 name: Update Documentation
 
 on:
+    pull_request:
     workflow_dispatch:
     push:
         branches:
@@ -42,7 +43,7 @@ jobs:
               run: bin/build-styleguide ${{ matrix.version.ref }} ${{ matrix.version.version }} "$AVAILABLE_VERSIONS"
 
             - name: Push styleguide
-              if: success() && steps.styleguide-build.outcome == 'success'
+              if: success() && steps.styleguide-build.outcome == 'success' && github.ref == 'refs/heads/master'
               run: |
                   git pull --ff-only
                   git config user.email "github@sulu.io"
@@ -60,6 +61,8 @@ jobs:
         steps:
             - name: Checkout project
               uses: actions/checkout@v4
+              with:
+                  ref: 'master'
 
             - name: Pull repository
               run: git pull --ff-only
@@ -68,6 +71,7 @@ jobs:
               run: echo "<!DOCTYPE html><html><body><script>window.location.href = './$STABLE_VERSION';</script></body></html>" > docs/index.html
 
             - name: Push index.html
+              if: ${{ github.ref == 'refs/heads/master' }}
               run: |
                   git config user.email "github@sulu.io"
                   git config user.name "Sulu User"
