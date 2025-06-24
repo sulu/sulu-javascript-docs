@@ -29,10 +29,10 @@ jobs:
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
-            - name: Use Node.js 12
-              uses: actions/setup-node@v1
+            - name: Use Node.js  ${{ matrix.version.nodeVersion }}
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.version.nodeVersion }}
 
@@ -59,13 +59,13 @@ jobs:
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Pull repository
               run: git pull --ff-only
 
             - name: Update index.html
-              run: echo "<!DOCTYPE html><html><body><script>window.location.href += '/$STABLE_VERSION';</script></body></html>" > docs/index.html
+              run: echo "<!DOCTYPE html><html><body><script>window.location.href = './$STABLE_VERSION';</script></body></html>" > docs/index.html
 
             - name: Push index.html
               run: |
