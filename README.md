@@ -7,9 +7,8 @@ The docs are available at https://jsdocs.sulu.io.
 
 The build of the styleguide is triggered automatically by [sulu/sulu](https://github.com/sulu/sulu). There is also the possibility to manually trigger that workflow in this repository.
 
-On every new minor release of [sulu/sulu](https://github.com/sulu/sulu), the [update-documentation.yaml](.github/workflows/update-documentation.yaml) workflow file has to be adjusted.
-- The `STABLE_VERSION` env var needs to be changed to the new minor version.
-- The new minor version needs to be added to the `AVAILABLE_VERSIONS` env var.
-- The new minor version along with its release branch needs to be added to the matrix for the `build-styleguide` job.
+Only two versions are published, `2.x` and `3.x`. The old folders (`2.0` to `2.6`, `3.0`, `3.1`, `latest`) only hold a redirect to them.
 
-An example pull request can be found here: https://github.com/sulu/sulu-javascript-docs/pull/3/files
+On every new minor release of [sulu/sulu](https://github.com/sulu/sulu), the [update-documentation.yaml](.github/workflows/update-documentation.yaml) workflow file has to be adjusted.
+- The `ref` of the matching entry in the matrix of the `build-styleguide` job needs to be changed to the new release branch (`2.x` builds from the latest 2.* branch, `3.x` from the latest 3.* branch).
+- A new major version needs a new matrix entry, a new `AVAILABLE_VERSIONS` entry and a redirect from its old folders.
